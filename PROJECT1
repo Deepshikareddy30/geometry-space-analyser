@@ -1,0 +1,27 @@
+import math
+def calculate_circle_area(side,radius):
+  #centre circle radius
+  R=(side*math.sqrt(2)/2)-radius*(math.sqrt(2)+1)
+  if R<=0:
+    return"Invalid Geometry:the corner circles are too big for the square!"
+  #calculate centre circle area
+  area=math.pi*(R**2)
+  return round(area,2)
+def calculate_square_area(side,radius):
+  #centre square side
+  S=side-radius*(2+math.sqrt(2))
+  if S<=0:
+    return"Invalid Geometry:the corner circles are too big for the square!"
+  #calculate centre square area
+  area=S**2
+  return round(area,2)
+n=float(input("enter the square side length:"))
+r=float(input("enter the circle radius:"))
+print("1.Inscribed circle area\n2.Inscribed square area")
+choice=int(input("enter your choice:"))
+if choice==1:
+  print("the area of the inscribed circle is:",calculate_circle_area(n,r))
+elif choice==2:
+  print("the area of the inscribed square is:",calculate_square_area(n,r))
+else:
+  print("invalid choice")
